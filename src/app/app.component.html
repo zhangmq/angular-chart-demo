@@ -1,0 +1,10 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <ul>
+    <li *ngFor="let action of actions$ | async;">{{action | json }}</li>
+  </ul>
+  <button (click)="fetchChart()">fetch chart</button>
+  <div>
+    {{chart$ | async | json }}
+  </div>
+</div>
