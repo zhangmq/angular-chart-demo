@@ -19,5 +19,7 @@ export class ChartBarComponent {
     return `translate(0, ${this.height})`
   }
   
-  constructor() {}
+  constructor() {
+    
+  }
 }
