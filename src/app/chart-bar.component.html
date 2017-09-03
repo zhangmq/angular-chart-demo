@@ -1,0 +1,16 @@
+<svg 
+  [attr.width]="width"
+  [attr.height]="height"
+  class="chart"
+>
+  <svg:g [attr.transform]="transform">
+    <svg:rect 
+      *ngFor = "let item of data; index as i; trackBy: key"
+      [attr.x]="i * 30 + 5"
+      [attr.y]="-value(item)"
+      [attr.width]="20"
+      [attr.height]="value(item)"
+      class="bar"
+    />
+  </svg:g>
+</svg>

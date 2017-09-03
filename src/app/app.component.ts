@@ -11,6 +11,9 @@ import { ChartService } from './chart.service';
   providers: [ ActionService, ChartService ],
 })
 export class AppComponent {
+  key = item => item.index;
+  value = item => item.value;
+  
   constructor(
     private chartService: ChartService
   ) {}

@@ -1,7 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <button (click)="chartService.fetch()">fetch chart</button>
+  <button (click)="chartService.fetch()" [disabled]="chartService.loading$ | async">fetch chart</button>
   <div>
-    {{chartService.data$ | async | json }}
+    <chart-bar
+      [data]="chartService.data$ | async"
+      [key]="key"
+      [value]="value"
+      width="600"
+      height="200"
+    ></chart-bar>
   </div>
+  <div>
+      <chart-bar
+        [data]="chartService.data$ | async"
+        [key]="key"
+        [value]="value"
+        width="600"
+        height="200"
+      ></chart-bar>
+    </div>
 </div>

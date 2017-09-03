@@ -1,3 +1,4 @@
+import { chain } from 'lodash';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { 
@@ -30,27 +31,40 @@ export class ChartService {
     this.fetchSucc = bindActionCreator(actionService, actionTypes.FETCH_SUCC);
     this.fetchFail = bindActionCreator(actionService, actionTypes.FETCH_FAIL);
 
+    const fetch$ = actionService
+      .select(action => action.type === actionTypes.FETCH);
+
+    const fetchSucc$ = actionService
+      .select(action => action.type === actionTypes.FETCH_SUCC);
+    
+    const fetchFail$ = actionService
+      .select(action => action.type === actionTypes.FETCH_FAIL);
+
     // effect
-    actionService
-      .select(action => action.type === actionTypes.FETCH)
-      .switchMap(() => Observable.of([Math.random()]).delay(500))
+    fetch$    
+      .switchMap(() => Observable.of(generateData(20)).delay(200))
       .subscribe(data => this.fetchSucc(data));
     
     // state
-    this.data$ = this.actionService
-      .select(action => action.type === actionTypes.FETCH_SUCC)
+    this.data$ = fetchSucc$
       .map(action => action.payload)
       .startWith([]);
     
-    this.error$ = this.actionService
-    .select(action => action.type === actionTypes.FETCH_FAIL)
-    .map(action => action.payload)
-    .startWith(null);
-
-    const loadingStart$ = this.actionService
-      .select(action => action.type === actionTypes.FETCH);
-
-    const loadingEnd$ = this.actionService
-      .select(action => [actionTypes.FETCH_SUCC, actionTypes.FETCH_FAIL].includes(action.type));
+    this.error$ = fetch$
+      .map(() => null)
+      .merge(fetchFail$.map(action => action.payload))
+      .startWith(null);
+      
+    this.loading$ = fetch$
+      .map(() => true)
+      .merge(fetchSucc$.merge(fetchFail$).map(() => false))
+      .startWith(false);
   }
 }
+
+const generateData = max => chain(new Array(max).fill(0))
+  .map((_, index) => ({ index, value: (Math.random() * 100).toFixed(2) }))
+  .shuffle()
+  .take(Math.floor(Math.random() * max))
+  .sort((a, b) => a.index - b.index)
+  .value();

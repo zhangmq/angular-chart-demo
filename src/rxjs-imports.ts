@@ -11,3 +11,4 @@ import 'rxjs/add/operator/combineLatest';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/merge';

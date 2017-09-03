@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'; 
+import debug from 'debug';
 import { createAction, Action } from './create-action';
+
+const log = debug('dispatch');
 
 @Injectable()
 export class ActionService {
@@ -16,7 +19,7 @@ export class ActionService {
   }
   
   dispatch(action: Action) {
-    console.log('dispatch', window.performance.now(), action);
     this.action$.next(action);
+    log('type: %s\npayload: %O', action.type, action.payload);
   }
 }
