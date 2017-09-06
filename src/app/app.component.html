@@ -1,22 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <button (click)="chartService.fetch()" [disabled]="chartService.loading$ | async">fetch chart</button>
+  <button (click)="chart.fetch()" [disabled]="chart.loading$ | async">fetch chart</button>
   <div>
     <chart-bar
-      [data]="chartService.data$ | async"
-      [key]="key"
-      [value]="value"
+      [data]="chart.data$ | async"
       width="600"
       height="200"
     ></chart-bar>
   </div>
-  <div>
-      <chart-bar
-        [data]="chartService.data$ | async"
-        [key]="key"
-        [value]="value"
-        width="600"
-        height="200"
-      ></chart-bar>
-    </div>
 </div>

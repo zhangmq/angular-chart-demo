@@ -1,16 +1,15 @@
+
 <svg 
   [attr.width]="width"
   [attr.height]="height"
   class="chart"
 >
   <svg:g [attr.transform]="transform">
-    <svg:rect 
-      *ngFor = "let item of data; index as i; trackBy: key"
-      [attr.x]="i * 30 + 5"
-      [attr.y]="-value(item)"
-      [attr.width]="20"
-      [attr.height]="value(item)"
+    <svg:g 
+      chart-bar-item 
+      *ngFor = "let key of keys$ | async; trackBy key"
       class="bar"
-    />
+      [key]="key"
+    ></svg:g>
   </svg:g>
 </svg>

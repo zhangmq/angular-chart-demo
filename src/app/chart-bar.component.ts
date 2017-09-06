@@ -1,25 +1,44 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-import { ActionService, createAction, Action } from '../modules/action';
 import { ChartService } from './chart.service';
+import { TransitionListService } from './transition-list.service';
+import { ChartBarItemComponent } from './chart-bar-item.component';
 
 @Component({
   selector: 'chart-bar',
   templateUrl: './chart-bar.component.html',
   styleUrls: ['./chart-bar.component.css'],
+  providers: [ TransitionListService, ChartBarComponent ],
 })
-export class ChartBarComponent {
+export class ChartBarComponent implements OnInit, OnChanges{
   @Input() data;
-  @Input() key;
-  @Input() value;
   @Input() width = 600;
   @Input() height = 400;
+  keys$;
+
   get transform() {
     return `translate(0, ${this.height})`
   }
   
-  constructor() {
-    
+  constructor(
+    private transitionList: TransitionListService
+  ) {
+    this.transitionList
+      .key(item => item.index)
+      .defaultStyle({ offset: 0, value: 0 })
+      .toStyle(item => ({ offset: item.index, value: item.value }))
+      .duration(500)
+      .start();
+  }
+
+  ngOnInit() {
+    this.keys$ = this.transitionList.keys();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.data) {
+      this.transitionList.next(changes.data.currentValue);
+    }
   }
 }

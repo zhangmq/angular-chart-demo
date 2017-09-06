@@ -1,0 +1,6 @@
+<svg:rect
+  [attr.x]="(state$ | async)?.offset * 30 + 5"
+  [attr.y]="-(state$ | async)?.value"
+  [attr.width]="20"
+  [attr.height]="(state$ | async)?.value"
+/>
