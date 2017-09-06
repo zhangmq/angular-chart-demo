@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { easeBounceInOut, easeQuadInOut } from 'd3-ease';
 import { ChartService } from './chart.service';
 import { TransitionListService } from './transition-list.service';
 import { ChartBarItemComponent } from './chart-bar-item.component';
@@ -29,6 +30,7 @@ export class ChartBarComponent implements OnInit, OnChanges{
       .defaultStyle({ offset: 0, value: 0 })
       .toStyle(item => ({ offset: item.index, value: item.value }))
       .duration(500)
+      .ease(easeQuadInOut)
       .start();
   }
 
