@@ -28,7 +28,7 @@ export class ChartBarComponent implements OnInit, OnChanges{
     this.transitionList
       .key(item => item.index)
       .defaultStyle({ offset: 0, value: 0 })
-      .toStyle(item => ({ offset: item.index, value: item.value }))
+      .toStyle((item, index) => ({ offset: index, value: item.value }))
       .duration(500)
       .ease(easeQuadInOut)
       .start();

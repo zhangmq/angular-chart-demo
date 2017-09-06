@@ -13,9 +13,6 @@ export class ChartBarItemComponent {
   constructor(
     private transitionList: TransitionListService
   ) {
-    
-
-
   }
 
   ngOnInit() {
