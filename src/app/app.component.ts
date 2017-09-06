@@ -8,13 +8,13 @@ import { ChartService } from './chart.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ ActionService, ChartService ],
+  providers: [ ChartService ],
 })
 export class AppComponent {
   key = item => item.index;
   value = item => item.value;
   
   constructor(
-    private chartService: ChartService
+    private chart: ChartService
   ) {}
 }

@@ -5,11 +5,7 @@
 >
   <svg:g [attr.transform]="transform">
     <svg:rect 
-      *ngFor = "let item of data; index as i; trackBy: key"
-      [attr.x]="i * 30 + 5"
-      [attr.y]="-value(item)"
-      [attr.width]="20"
-      [attr.height]="value(item)"
+      *ngFor = "let item of transitionList.state; trackBy: key"
       class="bar"
     />
   </svg:g>
