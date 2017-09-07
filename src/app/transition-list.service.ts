@@ -14,11 +14,16 @@ export class TransitionListService {
   private _leaved$;
   private _identity;
   private _defaultStyle;
+  private _leaveStyle;
   private _mapper;
   private _duration = 500;
   private _ease = easeLinear;
   private _interpolate = interpolate;
   private _change$;
+
+  constructor() {
+    console.log('is multi?');
+  }
   
   start() {
     this._leaved$ = new BehaviorSubject({ key: null });
@@ -48,7 +53,7 @@ export class TransitionListService {
         const from = frameProxy$.getValue();
         const { data, index } = item;
         const leaving = !data;
-        const to = data ? this._mapper(data, index) : this._defaultStyle;
+        const to = data ? this._mapper(data, index) : this._leaveStyle;
         const start = performance.now();
         //TODO: use Scheduler.animationFrame instead.
         const transition$ = Observable.create(observer => {
@@ -96,6 +101,11 @@ export class TransitionListService {
 
   defaultStyle(defaultStyle) {
     this._defaultStyle = defaultStyle;
+    return this;
+  }
+
+  leaveStyle(leaveStyle) {
+    this._leaveStyle = leaveStyle;
     return this;
   }
 

@@ -2,8 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { easeBounceInOut, easeQuadInOut } from 'd3-ease';
-import { ChartService } from './chart.service';
-import { TransitionListService } from './transition-list.service';
+import { TransitionListService } from '../transition-list.service';
 import { ChartBarItemComponent } from './chart-bar-item.component';
 
 @Component({
@@ -27,8 +26,9 @@ export class ChartBarComponent implements OnInit, OnChanges{
   ) {
     this.transitionList
       .key(item => item.index)
-      .defaultStyle({ offset: 0, value: 0 })
-      .toStyle((item, index) => ({ offset: index, value: item.value }))
+      .defaultStyle({ offset: 0, value: 100, opacity: 0 })
+      .leaveStyle({ offset: 20, value: 0, opacity: 0 })
+      .toStyle((item, index) => ({ offset: index, value: item.value, opacity: 1 }))
       .duration(500)
       .ease(easeQuadInOut)
       .start();

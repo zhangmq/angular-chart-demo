@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { TransitionListService } from './transition-list.service';
+import { TransitionListService } from '../transition-list.service';
 @Component({
   selector: '[chart-bar-item]',
   templateUrl: './chart-bar-item.component.html',

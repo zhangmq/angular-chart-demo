@@ -65,6 +65,6 @@ export class ChartService {
 const generateData = max => chain(new Array(max).fill(0))
   .map((_, index) => ({ index, value: (Math.random() * 100).toFixed(2) }))
   .shuffle()
-  .take(Math.floor(Math.random() * max))
+  .take(Math.floor(5 + Math.random() * (max - 5)))
   .sort((a, b) => a.index - b.index)
   .value();
