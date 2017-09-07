@@ -1,0 +1,9 @@
+.chart {
+  border: solid 0.1pt #cccccc;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1pt;
+  stroke: #666666;
+}

@@ -20,7 +20,7 @@ export class ChartLineComponent implements OnInit, OnChanges {
   private _duration = 500;
 
   get transform() {
-    return `translate(0, ${this.height})`;
+    return `translate(20, ${this.height - 20})`;
   }
 
   constructor() {
