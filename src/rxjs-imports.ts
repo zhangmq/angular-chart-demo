@@ -22,5 +22,6 @@ import 'rxjs/add/operator/concat';
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/repeat';
+import 'rxjs/add/operator/takeWhile';
 
 import 'rxjs/scheduler/animationFrame';

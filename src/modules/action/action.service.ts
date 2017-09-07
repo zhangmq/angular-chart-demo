@@ -9,7 +9,7 @@ const log = debug('dispatch');
 @Injectable()
 export class ActionService {
   action$;
-  
+
   constructor() {
     this.action$ = new BehaviorSubject(createAction('@action-pipe/init'));
   }
@@ -17,7 +17,7 @@ export class ActionService {
   select(condition: Function) {
     return this.action$.filter(condition);
   }
-  
+
   dispatch(action: Action) {
     this.action$.next(action);
     log('type: %s\npayload: %O', action.type, action.payload);

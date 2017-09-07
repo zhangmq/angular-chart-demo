@@ -1,0 +1,13 @@
+
+<svg 
+[attr.width]="width"
+[attr.height]="height"
+class="chart"
+  >
+  <svg:g [attr.transform]="transform">
+    <svg:path 
+      [attr.d]="line$ | async"
+      style="stroke: #000000; stroke-width: 1px; fill: none"
+    />
+  </svg:g>
+</svg>

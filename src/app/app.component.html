@@ -1,6 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <button (click)="chart.fetch()" [disabled]="chart.loading$ | async">fetch chart</button>
+  <button 
+    (click)="chart.fetch()" 
+    [disabled]="chart.loading$ | async"
+  >fetch chart</button>
   <div>
     <chart-bar
       [data]="chart.data$ | async"
@@ -15,4 +18,16 @@
       height="400"
     ></chart-pie>
   </div>
+  <button 
+    (click)="chart.fetchAnother()"
+    [disabled]="chart.loading2$ | async"
+  >fetch chart</button>
+  <div>
+    <chart-line
+      [data]="chart.data2$ | async"
+      width="600"
+      height="200"
+    ></chart-line>
+  </div>
+  
 </div>

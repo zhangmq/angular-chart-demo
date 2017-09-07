@@ -7,6 +7,7 @@ import { ChartBarItemComponent } from './chart-bar/chart-bar-item.component';
 import { KeysPipe } from './keys.pipe';
 import { ChartPieComponent } from './chart-pie/chart-pie.component';
 import { ChartPieItemComponent } from './chart-pie/chart-pie-item.component';
+import { ChartLineComponent } from './chart-line/chart-line.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ChartPieItemComponent } from './chart-pie/chart-pie-item.component';
     KeysPipe,
     ChartPieComponent,
     ChartPieItemComponent,
+    ChartLineComponent,
   ],
   imports: [
     BrowserModule,

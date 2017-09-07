@@ -17,5 +17,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.chart.fetch();
+    this.chart.fetchAnother();
   }
 }

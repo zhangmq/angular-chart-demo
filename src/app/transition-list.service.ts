@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
-import { Scheduler } from 'rxjs/rx';
+import { animationFrame } from 'rxjs/scheduler/animationFrame';
 import { easeLinear } from 'd3-ease';
 import { timer } from 'd3-timer';
 import { interpolate } from 'd3-interpolate';
@@ -51,24 +51,14 @@ export class TransitionListService {
         const leaving = !data;
         const to = data ? this._mapper(data, index, key) : this._leaveStyle(data, index, key);
         const start = performance.now();
-        // TODO: use Scheduler.animationFrame instead.
-        const transition$ = Observable.create(observer => {
-          const t = timer(elapsed => {
-            if (elapsed > this._duration) {
-              observer.next(1);
-              observer.complete();
-              t.stop();
-              return;
-            }
-
-            observer.next(elapsed / this._duration);
-          });
-        })
-        .map(this._ease)
-        .map(this._interpolate(from, to))
-        .concat(leaving ? Observable.of({ leaving: item }) : Observable.empty());
-
-        return transition$;
+        return Observable.of(0, animationFrame)
+          .repeat()
+          .map(() => (performance.now() - start) / this._duration)
+          .takeWhile(t => t < 1)
+          .concat(Observable.of(1))
+          .map(this._ease)
+          .map(this._interpolate(from, to))
+          .concat(leaving ? Observable.of({ leaving: item }) : Observable.empty());
       });
 
     return frame$
