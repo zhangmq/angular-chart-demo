@@ -15,6 +15,7 @@ export class ChartPieComponent implements OnInit, OnChanges {
   @Input() width = 600;
   @Input() height = 400;
   keys$;
+  track = key => key;
 
   get transform() {
     return `translate(${this.width / 2}, ${this.height / 2})`;

@@ -4,7 +4,6 @@ import { ActionModule, ActionService } from '../modules/action';
 import { AppComponent } from './app.component';
 import { ChartBarComponent } from './chart-bar/chart-bar.component';
 import { ChartBarItemComponent } from './chart-bar/chart-bar-item.component';
-import { KeysPipe } from './keys.pipe';
 import { ChartPieComponent } from './chart-pie/chart-pie.component';
 import { ChartPieItemComponent } from './chart-pie/chart-pie-item.component';
 import { ChartLineComponent } from './chart-line/chart-line.component';
@@ -14,7 +13,6 @@ import { ChartLineComponent } from './chart-line/chart-line.component';
     AppComponent,
     ChartBarComponent,
     ChartBarItemComponent,
-    KeysPipe,
     ChartPieComponent,
     ChartPieItemComponent,
     ChartLineComponent,
@@ -23,7 +21,7 @@ import { ChartLineComponent } from './chart-line/chart-line.component';
     BrowserModule,
     ActionModule,
   ],
-  providers: [ ActionService, KeysPipe ],
+  providers: [ ActionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
