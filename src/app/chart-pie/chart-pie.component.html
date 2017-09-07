@@ -1,3 +1,14 @@
-<p>
-  chart-pie works!
-</p>
+<svg 
+  [attr.width]="width"
+  [attr.height]="height"
+  class="chart"
+>
+  <svg:g [attr.transform]="transform">
+    <svg:g 
+      chart-pie-item
+      *ngFor = "let key of keys$ | async; trackBy key"
+      class="pie"
+      [key]="key"
+    ></svg:g>
+  </svg:g>
+</svg>

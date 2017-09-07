@@ -1,0 +1,9 @@
+.chart {
+  border: solid 0.1pt #cccccc;
+}
+
+.pie {
+  fill: #8080ff;
+  stroke-width: 0.1pt;
+  stroke: #000000;
+}

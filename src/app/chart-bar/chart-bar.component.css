@@ -1,9 +1,9 @@
 .chart {
-  border: solid 1px #cccccc;
+  border: solid 0.1pt #cccccc;
 }
 
 .bar {
   fill: #8080ff;
-  stroke-width: 1px;
+  stroke-width: 0.1pt;
   stroke: #666666;
 }

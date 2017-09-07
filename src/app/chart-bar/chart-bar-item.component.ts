@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TransitionListService } from '../transition-list.service';
+
 @Component({
   selector: '[chart-bar-item]',
   templateUrl: './chart-bar-item.component.html',
   styleUrls: ['./chart-bar-item.component.css'],
   providers: [  ]
 })
-export class ChartBarItemComponent {
+export class ChartBarItemComponent implements OnInit {
   @Input() key;
   state$;
-  state;
   constructor(
     private transitionList: TransitionListService
   ) {

@@ -21,10 +21,6 @@ export class TransitionListService {
   private _interpolate = interpolate;
   private _change$;
 
-  constructor() {
-    console.log('is multi?');
-  }
-  
   start() {
     this._leaved$ = new BehaviorSubject({ key: null });
     this._list$ = new BehaviorSubject([]);
@@ -46,16 +42,16 @@ export class TransitionListService {
   item(key) {
     const item$ = this._change$
       .filter(change => change.key === key);
-    
-    const frameProxy$ = new BehaviorSubject(this._defaultStyle);
+
+    const frameProxy$ = new BehaviorSubject(null);
     const frame$ = item$
       .switchMap(item => {
-        const from = frameProxy$.getValue();
         const { data, index } = item;
+        const from = frameProxy$.getValue() || this._defaultStyle(data, index, key);
         const leaving = !data;
-        const to = data ? this._mapper(data, index) : this._leaveStyle;
+        const to = data ? this._mapper(data, index, key) : this._leaveStyle(data, index, key);
         const start = performance.now();
-        //TODO: use Scheduler.animationFrame instead.
+        // TODO: use Scheduler.animationFrame instead.
         const transition$ = Observable.create(observer => {
           const t = timer(elapsed => {
             if (elapsed > this._duration) {
@@ -74,7 +70,6 @@ export class TransitionListService {
 
         return transition$;
       });
-    
 
     return frame$
       .do(frame => {
@@ -85,8 +80,6 @@ export class TransitionListService {
       .filter(frame => !frame.leaving)
       .do(style => frameProxy$.next(style))
       .shareReplay(1);
-    
-    
   }
 
   key(identity) {
@@ -127,7 +120,7 @@ export class TransitionListService {
   }
 }
 
-const diff = ([prev, next]) => 
+const diff = ([prev, next]) =>
   differenceBy(prev, next, item => item.key)
     .map(item => ({ ...item, data: null }))
     .concat(next);

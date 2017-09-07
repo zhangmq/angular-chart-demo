@@ -1,0 +1,5 @@
+<svg:path
+  [attr.d]="(state$ | async)?.d"
+  [style.opacity]="(state$ | async)?.opacity"
+  [style.fill]="(state$ | async)?.color"
+/>
