@@ -25,6 +25,7 @@ export class TransitionListService {
     this._leaved$ = new BehaviorSubject({ key: null });
     this._list$ = new BehaviorSubject([]);
     this._change$ = this._list$
+      .do(console.log)
       .pairwise()
       .map(diff)
       .shareReplay(1)
@@ -49,6 +50,7 @@ export class TransitionListService {
         const { data, index } = item;
         const from = frameProxy$.getValue() || this._defaultStyle(data, index, key);
         const leaving = !data;
+
         const to = data ? this._mapper(data, index, key) : this._leaveStyle(data, index, key);
         const start = performance.now();
         return Observable.of(0, animationFrame)

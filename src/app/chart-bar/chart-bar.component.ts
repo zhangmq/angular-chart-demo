@@ -15,7 +15,6 @@ export class ChartBarComponent implements OnInit, OnChanges {
   @Input() width = 600;
   @Input() height = 400;
   keys$;
-  track = key => key;
 
   get transform() {
     return `translate(0, ${this.height})`;
