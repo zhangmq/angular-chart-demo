@@ -25,7 +25,6 @@ export class TransitionListService {
     this._leaved$ = new BehaviorSubject({ key: null });
     this._list$ = new BehaviorSubject([]);
     this._change$ = this._list$
-      .do(console.log)
       .pairwise()
       .map(diff)
       .shareReplay(1)

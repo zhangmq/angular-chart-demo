@@ -6,7 +6,7 @@
   <svg:g [attr.transform]="transform">
     <svg:g 
       chart-pie-item
-      *ngFor = "let key of keys$ | async; trackBy track"
+      *ngFor = "let key of keys$ | async;"
       class="pie"
       [key]="key"
     ></svg:g>

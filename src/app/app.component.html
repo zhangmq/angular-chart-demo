@@ -7,14 +7,14 @@
   <div>
     <chart-bar
       [data]="chart.data$ | async"
-      width="600"
-      height="200"
+      width="800"
+      height="300"
     ></chart-bar>
   </div>
   <div>
     <chart-pie
       [data]="chart.data$ | async"
-      width="600"
+      width="800"
       height="400"
     ></chart-pie>
   </div>
@@ -25,8 +25,11 @@
   <div>
     <chart-line
       [data]="chart.data2$ | async"
-      width="600"
-      height="200"
+      width="800"
+      height="300"
     ></chart-line>
+  </div>
+  <div [style.height]="'400px'">
+
   </div>
 </div>

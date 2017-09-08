@@ -33,7 +33,7 @@ export class ChartLineComponent implements OnInit, OnChanges {
     this.line$ = this._data$
       .map(line()
         .curve(curveCardinal.tension(0.8))
-        .x(item => item.index * 6)
+        .x(item => item.index * 8)
         .y(item => -item.value)
       )
       .switchMap(to => {
