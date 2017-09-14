@@ -6,7 +6,7 @@
   <svg:g [attr.transform]="transform">
     <svg:g 
       chart-bar-item 
-      *ngFor = "let key of keys$ | async;"
+      *ngFor = "let key of keys$ | async; trackBy: tracker"
       class="bar"
       [key]="key"
     ></svg:g>
