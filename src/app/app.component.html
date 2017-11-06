@@ -4,20 +4,22 @@
     (click)="chart.fetch()" 
     [disabled]="chart.loading$ | async"
   >data1</button>
+  <!--
   <div>
     <chart-bar
       [data]="chart.data$ | async"
       width="800"
       height="300"
     ></chart-bar>
-  </div>
+  </div>-->
   <div>
-    <chart-pie
+    <chart-pie2
       [data]="chart.data$ | async"
-      width="800"
-      height="400"
-    ></chart-pie>
+      [width]="800"
+      [height]="400"
+    ></chart-pie2>
   </div>
+  <!--
   <button 
     (click)="chart.fetchAnother()"
     [disabled]="chart.loading2$ | async"
@@ -32,4 +34,12 @@
   <div [style.height]="'400px'">
 
   </div>
+  -->
+  <!--<diagram-pipeline
+    [gridX]="160"
+    [gridY]="80"
+    [width]="900"
+    [height]="450"
+    [data]="data"
+  ></diagram-pipeline>-->
 </div>

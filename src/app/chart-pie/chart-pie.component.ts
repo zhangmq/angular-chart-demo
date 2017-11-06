@@ -14,9 +14,9 @@ export class ChartPieComponent implements OnInit, OnChanges {
   @Input() data;
   @Input() width = 600;
   @Input() height = 400;
+  selected = null;
   keys$;
   tracker = (_, key) => key;
-
   get transform() {
     return `translate(${this.width / 2}, ${this.height / 2})`;
   }
@@ -24,7 +24,8 @@ export class ChartPieComponent implements OnInit, OnChanges {
   constructor(
     private transitionList: TransitionListService
   ) {
-    const outerRadius = Math.min(this.width / 2, this.height / 2) - 20;
+    const selected = Math.min(this.width / 2, this.height / 2) - 20;
+    const outerRadius = selected - 20;
     const innerRadius = outerRadius - 50;
     const color = scaleSequential(interpolateCubehelixDefault)
       .domain([0, 20]);
@@ -32,18 +33,18 @@ export class ChartPieComponent implements OnInit, OnChanges {
     this.transitionList
       .key(item => item.data.index)
       .defaultStyle((_, __, key) => ({
-        startAngle: 0,
-        endAngle: 0,
-        innerRadius: 0,
-        outerRadius: 50,
+        startAngle: -Math.PI / 2,
+        endAngle: -Math.PI / 2,
+        innerRadius,
+        outerRadius,
         opacity: 0,
         color: color(key),
       }))
       .leaveStyle((_, __, key) => ({
-        startAngle: Math.PI * 2,
-        endAngle: Math.PI * 2,
-        innerRadius: outerRadius,
-        outerRadius: outerRadius + 50,
+        startAngle: Math.PI / 2,
+        endAngle: Math.PI / 2,
+        innerRadius,
+        outerRadius,
         opacity: 0,
         color: color(key),
       }))
@@ -66,7 +67,7 @@ export class ChartPieComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data) {
       this.transitionList.next(
-        pie().value(item => item.value)(changes.data.currentValue)
+        pie().startAngle(-Math.PI / 2).endAngle(Math.PI / 2).value(item => item.value)(changes.data.currentValue)
       );
     }
   }

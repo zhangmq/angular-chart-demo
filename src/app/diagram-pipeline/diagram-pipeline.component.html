@@ -1,0 +1,48 @@
+<svg 
+  [attr.width]="width"
+  [attr.height]="height"
+  class="diagram-pipeline"
+>
+  <svg:g [attr.transform]="transform">
+    <svg:g
+      diagram-pipeline-link
+      *ngFor="let link of links"
+      [link]="link"
+    ></svg:g>
+    <svg:g
+      *ngFor="let node of nodes"
+    >
+      <text
+        [attr.x]="node.cx"
+        [attr.y]="node.cy - 40"
+        text-anchor="middle"
+      >{{ node.displayName }}</text>
+      <svg:circle
+        *ngIf="!node.children"
+        [attr.cx]="node.cx"
+        [attr.cy]="node.cy"
+        [attr.r]="node.r"
+        stroke="#666"
+        stroke-width="4px"
+        fill="#ccc"
+      />
+      <svg:g
+        *ngFor="let child of node.children"
+      >
+        <text
+          [attr.x]="child.cx"
+          [attr.y]="child.cy + 40"
+          text-anchor="middle"
+        >{{ child.displayName }}</text>
+        <svg:circle
+          [attr.cx]="child.cx"
+          [attr.cy]="child.cy"
+          [attr.r]="child.r"
+          stroke="#ccc"
+          stroke-width="4px"
+          fill="#fff"
+        />
+      </svg:g>
+    </svg:g>
+  </svg:g>
+</svg>

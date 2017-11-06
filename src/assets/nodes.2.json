@@ -1,0 +1,237 @@
+[{
+  "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl",
+  "_links": {
+    "self": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/13/"
+    },
+    "actions": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/13/actions/"
+    },
+    "steps": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/13/steps/"
+    }
+  },
+  "actions": [],
+  "displayDescription": null,
+  "displayName": "Clone",
+  "durationInMillis": 262,
+  "id": "13",
+  "input": null,
+  "result": "SUCCESS",
+  "startTime": "2017-10-25T03:01:23.611+0000",
+  "state": "FINISHED",
+  "causeOfBlockage": null,
+  "edges": [{
+    "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl$EdgeImpl",
+    "id": "18"
+  }]
+}, {
+  "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl",
+  "_links": {
+    "self": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/18/"
+    },
+    "actions": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/18/actions/"
+    },
+    "steps": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/18/steps/"
+    }
+  },
+  "actions": [],
+  "displayDescription": null,
+  "displayName": "Build",
+  "durationInMillis": 30,
+  "id": "18",
+  "input": null,
+  "result": "SUCCESS",
+  "startTime": "2017-10-25T03:01:23.931+0000",
+  "state": "FINISHED",
+  "causeOfBlockage": null,
+  "edges": [{
+    "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl$EdgeImpl",
+    "id": "22"
+  }, {
+    "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl$EdgeImpl",
+    "id": "23"
+  }, {
+    "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl$EdgeImpl",
+    "id": "24"
+  }]
+}, {
+  "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl",
+  "_links": {
+    "self": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/22/"
+    },
+    "actions": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/22/actions/"
+    },
+    "steps": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/22/steps/"
+    }
+  },
+  "actions": [],
+  "displayDescription": null,
+  "displayName": "Branch A",
+  "durationInMillis": 29,
+  "id": "22",
+  "input": null,
+  "result": "FAILURE",
+  "startTime": "2017-10-25T03:01:23.932+0000",
+  "state": "FINISHED",
+  "causeOfBlockage": null,
+  "edges": [{
+    "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl$EdgeImpl",
+    "id": "50"
+  }]
+}, {
+  "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl",
+  "_links": {
+    "self": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/23/"
+    },
+    "actions": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/23/actions/"
+    },
+    "steps": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/23/steps/"
+    }
+  },
+  "actions": [],
+  "displayDescription": null,
+  "displayName": "Branch B",
+  "durationInMillis": 28,
+  "id": "23",
+  "input": null,
+  "result": "SUCCESS",
+  "startTime": "2017-10-25T03:01:23.933+0000",
+  "state": "FINISHED",
+  "causeOfBlockage": null,
+  "edges": [{
+    "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl$EdgeImpl",
+    "id": "50"
+  }]
+}, {
+  "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl",
+  "_links": {
+    "self": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/24/"
+    },
+    "actions": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/24/actions/"
+    },
+    "steps": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/24/steps/"
+    }
+  },
+  "actions": [],
+  "displayDescription": null,
+  "displayName": "Branch C",
+  "durationInMillis": 27,
+  "id": "24",
+  "input": null,
+  "result": "SUCCESS",
+  "startTime": "2017-10-25T03:01:23.934+0000",
+  "state": "FINISHED",
+  "causeOfBlockage": null,
+  "edges": [{
+    "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl$EdgeImpl",
+    "id": "50"
+  }]
+}, {
+  "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl",
+  "_links": {
+    "self": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/50/"
+    },
+    "actions": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/50/actions/"
+    },
+    "steps": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/50/steps/"
+    }
+  },
+  "actions": [],
+  "displayDescription": null,
+  "displayName": "Test",
+  "durationInMillis": 0,
+  "id": "50",
+  "input": null,
+  "result": "NOT_BUILT",
+  "startTime": null,
+  "state": "NOT_BUILT",
+  "causeOfBlockage": null,
+  "edges": [{
+    "id": "54"
+  }]
+}, {
+  "id": "100",
+  "displayName": "Test1",
+  "edges": [{
+    "id": "54"
+  }]
+}, {
+  "id": "101",
+  "displayName": "Test2",
+  "edges": [{
+    "id": "54"
+  }]
+}, {
+  "id": "102",
+  "displayName": "Test3",
+  "edges": [{
+    "id": "54"
+  }]
+}, {
+  "id": "103",
+  "displayName": "Test4",
+  "edges": [{
+    "id": "54"
+  }]
+}, {
+  "_class": "io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeImpl",
+  "_links": {
+    "self": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/54/"
+    },
+    "actions": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/54/actions/"
+    },
+    "steps": {
+      "_class": "io.jenkins.blueocean.rest.hal.Link",
+      "href": "/blue/rest/organizations/jenkins/pipelines/chengjingtao/pipelines/test-parallel-pipelines/branches/master/runs/13/nodes/54/steps/"
+    }
+  },
+  "actions": [],
+  "displayDescription": null,
+  "displayName": "deploy",
+  "durationInMillis": 0,
+  "id": "54",
+  "input": null,
+  "result": "NOT_BUILT",
+  "startTime": null,
+  "state": "NOT_BUILT",
+  "causeOfBlockage": null,
+  "edges": []
+}]

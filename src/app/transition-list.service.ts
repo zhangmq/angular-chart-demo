@@ -112,6 +112,6 @@ export class TransitionListService {
 }
 
 const diff = ([prev, next]) =>
-  differenceBy(prev, next, item => item.key)
+  differenceBy(prev, next, (item: any) => item.key)
     .map(item => ({ ...item, data: null }))
     .concat(next);

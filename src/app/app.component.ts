@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { ActionService, createAction, Action } from '../modules/action';
 import { ChartService } from './chart.service';
+import * as nodes from '../assets/nodes.json';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,11 @@ import { ChartService } from './chart.service';
   providers: [ ChartService ],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  interval;
-
+  // interval;
+  data = {
+    nodes,
+    start: '13',
+  };
   constructor(
     public chart: ChartService
   ) {}
@@ -25,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // normal
     this.chart.fetch();
-    this.chart.fetchAnother();
+    // this.chart.fetchAnother();
   }
 
   ngOnDestroy() {

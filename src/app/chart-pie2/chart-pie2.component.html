@@ -1,0 +1,18 @@
+<svg
+  [attr.width]="width"
+  [attr.height]="height"
+>
+  <svg:g [attr.transform]="transform">
+    <svg:path
+      *ngFor="let arc of arcs$ | async; trackBy:tracker"
+      stroke="#000"
+      stroke-width="1"
+      [attr.d]="arc.d"
+      [attr.fill]="arc.color"
+      (click)="onSelect(arc.id)"
+      ngx-tooltip
+      [tooltipTitle]="arc.title"
+      style="outline:none"
+    />
+  </svg:g>
+</svg>
