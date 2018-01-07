@@ -19,7 +19,6 @@ export class ChartPie2Component implements OnChanges {
   arcs$;
   keys$;
   tracker = (_, arc) => {
-    console.log(arc);
     return arc.id;
   }
   get transform() {
@@ -27,8 +26,8 @@ export class ChartPie2Component implements OnChanges {
   }
 
   constructor() {
-    const selectedRadius = Math.min(this.width / 2, this.height) - 20;
-    const outerRadius = selectedRadius - 50;
+    const selectedRadius = Math.min(this.width / 2, this.height);
+    const outerRadius = selectedRadius - 20;
     const innerRadius = 120;
     const color = scaleSequential(interpolateCubehelixDefault)
       .domain([0, 20]);
